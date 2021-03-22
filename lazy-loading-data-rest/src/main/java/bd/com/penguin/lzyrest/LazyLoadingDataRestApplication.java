@@ -19,10 +19,12 @@ public class LazyLoadingDataRestApplication implements CommandLineRunner{
 
     public static void main(String[] args) {
         SpringApplication.run(LazyLoadingDataRestApplication.class, args);
+        System.out.println(org.hibernate.Version.getVersionString());
     }
 
     @Override
     public void run(String... strings) throws Exception {
+
         //Order order = repository.findById("orderId").orElse(null);
         //System.out.println(order.getOrderItems().size());
     }

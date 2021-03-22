@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @since 7/17/19
  */
 public interface OrderRepository extends JpaRepository<Order, String> {
+
 }

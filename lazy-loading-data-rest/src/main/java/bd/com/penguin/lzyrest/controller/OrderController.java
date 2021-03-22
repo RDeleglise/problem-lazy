@@ -1,11 +1,12 @@
 package bd.com.penguin.lzyrest.controller;
 
 import bd.com.penguin.lzyrest.domain.Order;
+import bd.com.penguin.lzyrest.domain.OrderItem;
 import bd.com.penguin.lzyrest.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,11 +19,12 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(value = "/orders")
 public class OrderController {
-
-    private final OrderRepository orderRepository;
+    @Autowired
+    OrderRepository orderRepository;
 
     @GetMapping(value = "/list")
     public List<Order> getOrders() {
-        return orderRepository.findAll();
+        List<Order> orders = orderRepository.findAll();
+        return orders;
     }
 }
